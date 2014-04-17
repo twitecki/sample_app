@@ -7,10 +7,6 @@ describe User do
 
 	subject { @user }
 
-  describe "remember token" do
-    before { @user.save }
-    its(:remember_token) { should_not be_blank }
-  end
 
 	it { should respond_to(:name) } #making sure the name field is in the database for User
 	it { should respond_to(:email) }
@@ -19,7 +15,11 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
-	
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
 
 	it { should be_valid }
 
